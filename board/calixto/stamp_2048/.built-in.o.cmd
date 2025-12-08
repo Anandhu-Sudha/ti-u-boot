@@ -1,0 +1,1 @@
+cmd_board/calixto/stamp/built-in.o :=  rm -f board/calixto/stamp/built-in.o; /opt/arm-toolchain/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc-ar cDPrsT board/calixto/stamp/built-in.o board/calixto/stamp/stamp.o

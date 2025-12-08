@@ -1,0 +1,80 @@
+/* SPDX-License-Identifier: GPL-2.0+ */
+/*
+ * K3: J721E SoC definitions, structures etc.
+ *
+ * (C) Copyright (C) 2018-2019 Texas Instruments Incorporated - https://www.ti.com/
+ */
+#ifndef __ASM_ARCH_J721E_HARDWARE_H
+#define __ASM_ARCH_J721E_HARDWARE_H
+
+#ifndef __ASSEMBLY__
+#include <linux/bitops.h>
+#endif
+
+#define WKUP_CTRL_MMR0_BASE				0x43000000
+#define MCU_CTRL_MMR0_BASE				0x40f00000
+#define CTRL_MMR0_BASE					0x00100000
+
+#define PMCTRL_IO_1						(DMSC_PWRCTRL_BASE + 0x88)
+#define DMSC_PWRCTRL_BASE				0x44130000
+#define CANUART_WAKE_CTRL				0x18300
+#define CANUART_WAKE_STAT0				0x18308
+#define CANUART_WAKE_STAT1				0x1830C
+
+#define IO_ISO_MAGIC_VAL			0x55555554
+#define IO_ISO_STATUS				BIT(25)
+#define CANUART_WAKE_STAT1_CANUART_IO_MODE	BIT(0)
+#define DEISOLATION_TIMEOUT_MS			10
+
+#define CTRLMMR_MAIN_DEVSTAT				(CTRL_MMR0_BASE + 0x30)
+#define MAIN_DEVSTAT_BOOT_MODE_B_MASK		BIT(0)
+#define MAIN_DEVSTAT_BOOT_MODE_B_SHIFT		0
+#define MAIN_DEVSTAT_BKUP_BOOTMODE_MASK		GENMASK(3, 1)
+#define MAIN_DEVSTAT_BKUP_BOOTMODE_SHIFT	1
+#define MAIN_DEVSTAT_PRIM_BOOTMODE_MMC_PORT_MASK	BIT(6)
+#define MAIN_DEVSTAT_PRIM_BOOTMODE_PORT_SHIFT		6
+#define MAIN_DEVSTAT_BKUP_MMC_PORT_MASK			BIT(7)
+#define MAIN_DEVSTAT_BKUP_MMC_PORT_SHIFT		7
+
+#define CTRLMMR_WKUP_DEVSTAT			(WKUP_CTRL_MMR0_BASE + 0x30)
+#define WKUP_DEVSTAT_PRIMARY_BOOTMODE_MASK	GENMASK(5, 3)
+#define WKUP_DEVSTAT_PRIMARY_BOOTMODE_SHIFT	3
+#define WKUP_DEVSTAT_MCU_OMLY_MASK		BIT(6)
+#define WKUP_DEVSTAT_MCU_ONLY_SHIFT		6
+
+/* ROM HANDOFF Structure location */
+#define ROM_EXTENDED_BOOT_DATA_INFO			0x41cffb00
+
+/* MCU SCRATCHPAD usage */
+#define TI_SRAM_SCRATCH_BOARD_EEPROM_START	CONFIG_SYS_K3_MCU_SCRATCHPAD_BASE
+#define TI_SRAM_SCRATCH_LPM_START    0x40280000
+
+#if defined(CONFIG_SYS_K3_SPL_ATF) && !defined(__ASSEMBLY__)
+
+#define J721E_DEV_MCU_RTI0			262
+#define J721E_DEV_MCU_RTI1			263
+
+static const u32 put_device_ids[] = {
+	J721E_DEV_MCU_RTI0,
+	J721E_DEV_MCU_RTI1,
+};
+
+#endif
+
+#define J721E_DEV_MCU_ARMSS0_CPU0		250
+#define J721E_DEV_MCU_ARMSS0_CPU1		251
+
+struct lpm_scratch_space {
+	u16 wake_src;
+	u16 reserved;
+} __packed;
+
+#define TI_SRAM_LPM_SCRATCH ((struct lpm_scratch_space *)\
+				TI_SRAM_SCRATCH_LPM_START)
+
+static const u32 put_core_ids[] = {
+	J721E_DEV_MCU_ARMSS0_CPU1,
+	J721E_DEV_MCU_ARMSS0_CPU0,	/* Handle CPU0 after CPU1 */
+};
+
+#endif /* __ASM_ARCH_J721E_HARDWARE_H */

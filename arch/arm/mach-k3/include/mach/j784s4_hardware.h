@@ -1,0 +1,79 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+/*
+ * K3: J784S4 SoC definitions, structures etc.
+ *
+ * Copyright (C) 2023-2024 Texas Instruments Incorporated - https://www.ti.com/
+ */
+#ifndef __ASM_ARCH_J784S4_HARDWARE_H
+#define __ASM_ARCH_J784S4_HARDWARE_H
+
+#ifndef __ASSEMBLY__
+#include <linux/bitops.h>
+#endif
+
+#define WKUP_CTRL_MMR0_BASE				0x43000000
+#define MCU_CTRL_MMR0_BASE				0x40f00000
+#define CTRL_MMR0_BASE					0x00100000
+
+#define PMCTRL_IO_0					0x14084
+#define MCU_GEN_WAKE_CTRL				0x18310
+#define MCU_GEN_WAKE_STAT0				0x18318
+#define MCU_GEN_WAKE_STAT1				0x1831C
+
+#define IO_ISO_MAGIC_VAL				0x55555554
+#define IO_ISO_STATUS					BIT(25)
+#define MCU_GEN_WAKE_STAT1_MCU_GEN_IO_MODE		BIT(0)
+#define DEISOLATION_TIMEOUT_MS				10
+
+#define CTRLMMR_MAIN_DEVSTAT				(CTRL_MMR0_BASE + 0x30)
+#define MAIN_DEVSTAT_BOOT_MODE_B_MASK			BIT(0)
+#define MAIN_DEVSTAT_BOOT_MODE_B_SHIFT			0
+#define MAIN_DEVSTAT_BKUP_BOOTMODE_MASK			GENMASK(3, 1)
+#define MAIN_DEVSTAT_BKUP_BOOTMODE_SHIFT		1
+#define MAIN_DEVSTAT_PRIM_BOOTMODE_MMC_PORT_MASK	BIT(6)
+#define MAIN_DEVSTAT_PRIM_BOOTMODE_PORT_SHIFT		6
+#define MAIN_DEVSTAT_BKUP_MMC_PORT_MASK			BIT(7)
+#define MAIN_DEVSTAT_BKUP_MMC_PORT_SHIFT		7
+
+#define CTRLMMR_WKUP_DEVSTAT				(WKUP_CTRL_MMR0_BASE + 0x30)
+#define WKUP_DEVSTAT_PRIMARY_BOOTMODE_MASK		GENMASK(5, 3)
+#define WKUP_DEVSTAT_PRIMARY_BOOTMODE_SHIFT		3
+#define WKUP_DEVSTAT_MCU_ONLY_MASK			BIT(6)
+#define WKUP_DEVSTAT_MCU_ONLY_SHIFT			6
+
+/* ROM HANDOFF Structure location */
+#define ROM_EXTENDED_BOOT_DATA_INFO			0x41cfdb00
+
+/* MCU SCRATCHPAD usage */
+#define TI_SRAM_SCRATCH_BOARD_EEPROM_START	CONFIG_SYS_K3_MCU_SCRATCHPAD_BASE
+#define TI_SRAM_SCRATCH_LPM_START    0x40280000
+
+#if defined(CONFIG_SYS_K3_SPL_ATF) && !defined(__ASSEMBLY__)
+
+#define J784S4_DEV_MCU_RTI0			367
+#define J784S4_DEV_MCU_RTI1			368
+
+static const u32 put_device_ids[] = {
+	J784S4_DEV_MCU_RTI0,
+	J784S4_DEV_MCU_RTI1,
+};
+
+#endif
+
+#define J784S4_DEV_MCU_ARMSS0_CPU0		346
+#define J784S4_DEV_MCU_ARMSS0_CPU1		347
+
+static const u32 put_core_ids[] = {
+	J784S4_DEV_MCU_ARMSS0_CPU1,
+	J784S4_DEV_MCU_ARMSS0_CPU0,     /* Handle CPU0 after CPU1 */
+};
+
+struct lpm_scratch_space {
+	u16 wake_src;
+	u16 reserved;
+} __packed;
+
+#define TI_SRAM_LPM_SCRATCH ((struct lpm_scratch_space *)\
+				TI_SRAM_SCRATCH_LPM_START)
+
+#endif /* __ASM_ARCH_J784S4_HARDWARE_H */
