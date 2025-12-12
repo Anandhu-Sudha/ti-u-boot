@@ -167,7 +167,7 @@
 				};
 
 				fdt-0 {
-					description = "k3-am62lx-evm";
+					description = "k3-am62lx-stamp";
 					type = "flat_dt";
 					arch = "arm";
 					compression = "none";
@@ -186,7 +186,7 @@
 				default = "conf-0";
 
 				conf-0 {
-					description = "k3-am62lx-evm";
+					description = "k3-am62lx-stamp";
 					firmware = "uboot";
 					loadables = "uboot";
 					fdt = "fdt-0";
