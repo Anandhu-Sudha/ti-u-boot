@@ -29,11 +29,19 @@ config TARGET_AM62L3_STAMP_2048
 	select BINMAN
 	select OF_UPSTREAM
 	select OF_SYSTEM_SETUP
+	
+config TARGET_AM62L3_STAMP_LPDDR
+	bool "Calixto K3 based AM62L3 STAMP 2 GB lpddr4"
+	select ARM64
+	select BINMAN
+	select OF_UPSTREAM
+	select OF_SYSTEM_SETUP
 
 endchoice
 
 source "board/ti/am62lx/Kconfig"
 source "board/calixto/stamp_1024/Kconfig"
 source "board/calixto/stamp_2048/Kconfig"
+source "board/calixto/stamp_lpddr/Kconfig"
 
 endif

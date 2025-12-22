@@ -1185,6 +1185,7 @@ dtb-$(CONFIG_SOC_K3_AM625) += k3-am625-r5-sk.dtb \
 			      k3-am625-r5-phycore-som-2gb.dtb
 
 dtb-$(CONFIG_SOC_K3_AM62L3) += k3-am62l3-stamp.dtb
+dtb-$(CONFIG_SOC_K3_AM62L3) += k3-am62l3-lpddr.dtb
 
 dtb-$(CONFIG_SOC_K3_AM62A7) += k3-am62a7-r5-sk.dtb
 

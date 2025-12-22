@@ -1,0 +1,99 @@
+
+[ req ]
+distinguished_name     = req_distinguished_name
+x509_extensions        = v3_ca
+prompt                 = no
+dirstring_type         = nobmp
+
+[ req_distinguished_name ]
+C                      = US
+ST                     = TX
+L                      = Dallas
+O                      = Texas Instruments Incorporated
+OU                     = Processors
+CN                     = TI Support
+emailAddress           = support@ti.com
+
+[ v3_ca ]
+basicConstraints = CA:true
+1.3.6.1.4.1.294.1.3=ASN1:SEQUENCE:swrv
+1.3.6.1.4.1.294.1.9=ASN1:SEQUENCE:ext_boot_info
+1.3.6.1.4.1.294.1.8=ASN1:SEQUENCE:debug
+
+[swrv]
+swrv=INTEGER:1
+
+[ext_boot_info]
+extImgSize=INTEGER:1472260
+numComp=INTEGER:6
+sbl=SEQUENCE:sbl
+sysfw=SEQUENCE:sysfw
+sysfw_data=SEQUENCE:sysfw_data
+sysfw_inner_cert=SEQUENCE:sysfw_inner_cert
+tee=SEQUENCE:tee
+dm_data=SEQUENCE:dm_data
+
+[sbl]
+compType = INTEGER:1
+bootCore = INTEGER:16
+compOpts = INTEGER:0
+destAddr = FORMAT:HEX,OCT:80000000
+compSize = INTEGER:292136
+shaType  = OID:2.16.840.1.101.3.4.2.3
+shaValue = FORMAT:HEX,OCT:5b4297810fa142bd7c30b393011626f29ffd13c2c395b4ca9c34130443dbacdd386785945e94f710121e472ff9d375d52c611153a86380cdea252e909d07393c
+
+[sysfw]
+compType = INTEGER:2
+bootCore = INTEGER:0
+compOpts = INTEGER:0
+destAddr = FORMAT:HEX,OCT:00040000
+compSize = INTEGER:180224
+shaType  = OID:2.16.840.1.101.3.4.2.3
+shaValue = FORMAT:HEX,OCT:4239e419975d70df8c727cc15beaf1aa3e47799061972c3791d46850a8df80690b7016f959f9d07f638c2601ca8ca1248f7f386417fa6733777b6a23a60617cc
+
+[sysfw_data]
+compType = INTEGER:18
+bootCore = INTEGER:0
+compOpts = INTEGER:0
+destAddr = FORMAT:HEX,OCT:0006c000
+compSize = INTEGER:396
+shaType  = OID:2.16.840.1.101.3.4.2.3
+shaValue = FORMAT:HEX,OCT:8a708d2872ffbf2a262d30af50d52d85d789efac3a5b738da8cbab0dd109fa41267a440b8c8c0b46f70baa2aef826c7df2839ed14018f7a947f172d6d6a2b18f
+
+# When debugging low level boot firmware it can be useful to have ROM or TIFS
+# unlock JTAG access to the misbehaving CPUs. However in a production setting
+# this can lead to code modification by outside parties after it's been
+# authenticated. To gain JTAG access add the 'debug' flag to the binman config
+[ debug ]
+debugUID = FORMAT:HEX,OCT:0000000000000000000000000000000000000000000000000000000000000000
+debugType = INTEGER:0
+coreDbgEn = INTEGER:0
+coreDbgSecEn = INTEGER:0
+
+[sysfw_inner_cert]
+compType = INTEGER:3
+bootCore = INTEGER:0
+compOpts = INTEGER:0
+destAddr = FORMAT:HEX,OCT:00000000
+compSize = INTEGER:1684
+shaType  = OID:2.16.840.1.101.3.4.2.3
+shaValue = FORMAT:HEX,OCT:b646c232abbdce71779bb3e4332180530e381c99b0092153242e0f5afd03f38949d7ce76d277f8b2bb83836cdbd82e85be337b72461ca3356511f79fde488074
+
+[tee]
+compType = INTEGER:17
+bootCore = INTEGER:16
+compOpts = INTEGER:0
+destAddr = FORMAT:HEX,OCT:80200000
+compSize = INTEGER:707952
+shaType  = OID:2.16.840.1.101.3.4.2.3
+shaValue = FORMAT:HEX,OCT:342454f31f77cb022eb6b2c1664d8a0c6ddec2bafcf846f35589321dd5c7d3b19a1751295fc56ed6e38c8ca7e92c1ddad0d1991a740b39c42d3bfe4721238255
+
+[dm_data]
+compType = INTEGER:17
+bootCore = INTEGER:16
+compOpts = INTEGER:0
+destAddr = FORMAT:HEX,OCT:82000000
+compSize = INTEGER:289868
+shaType  = OID:2.16.840.1.101.3.4.2.3
+shaValue = FORMAT:HEX,OCT:2293338d2b5cf703cf1c874455cc3b4a65c5078ab4483e5480577749350004202649508ff889ff6a27a493f72b087dbdb4ce9eda40a075f90398ee22e1a25885
+        
