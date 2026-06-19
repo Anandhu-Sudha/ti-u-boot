@@ -17,7 +17,7 @@
 
 / {
 	compatible = "ti,am62l3-evm", "ti,am62l3";
-	model = "Calixto Systems AM62L DDR4 STAMP SOM Module";
+	model = "Calixto Systems AM62L 1GB lpddr4 STAMP SOM Module";
 
 	aliases {
 		mmc0 = &sdhci0;
@@ -30,7 +30,7 @@
 	};
 
 	memory@80000000 {
-		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
+		reg = <0x00000000 0x80000000 0x00000000 0x40000000>;
 		device_type = "memory";
 		bootph-all;
 	};
