@@ -24,7 +24,7 @@ basicConstraints = CA:true
 swrv=INTEGER:1
 
 [ext_boot_info]
-extImgSize=INTEGER:219285
+extImgSize=INTEGER:219237
 numComp=INTEGER:4
 sbl=SEQUENCE:sbl
 sysfw=SEQUENCE:sysfw
@@ -38,9 +38,9 @@ compType = INTEGER:1
 bootCore = INTEGER:16
 compOpts = INTEGER:160
 destAddr = FORMAT:HEX,OCT:70800000
-compSize = INTEGER:36981
+compSize = INTEGER:36933
 shaType  = OID:2.16.840.1.101.3.4.2.3
-shaValue = FORMAT:HEX,OCT:20646409a93a3531658ef06922be6a3a7ecab780490200de84d903146849a0932d5e086aada46c9ca4d2ac59caaf516bd403693d1abcf0481bb27b086b08bf74
+shaValue = FORMAT:HEX,OCT:4fc37ce15c4eba32de2d83f636883db901db6228de603010626de090e2ce59b044b265fa9b628ee1394dd7e76cef6e89ceaf4ba548e15f221e8911e4c852847e
 
 [sysfw]
 compType = INTEGER:2
