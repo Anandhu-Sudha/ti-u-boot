@@ -1,0 +1,1 @@
+cmd_spl/u-boot-spl.multidtb.fit := ./tools/mkimage -f auto -A arm -T firmware -C none -O u-boot -n "Multi DTB fit image for u-boot-spl" -E -b spl/dts/ti/k3-am62l-calixto-stamp_1GB.dtb -d /dev/null spl/u-boot-spl.multidtb.fit >/dev/null 

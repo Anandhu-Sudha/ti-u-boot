@@ -1,0 +1,1 @@
+cmd_lib/zstd/zstd_decompress.o := rm -f lib/zstd/zstd_decompress.o; aarch64-none-linux-gnu-gcc-ar cDPrsT lib/zstd/zstd_decompress.o lib/zstd/zstd_decompress_module.o lib/zstd/decompress/huf_decompress.o lib/zstd/decompress/zstd_ddict.o lib/zstd/decompress/zstd_decompress.o lib/zstd/decompress/zstd_decompress_block.o lib/zstd/zstd.o

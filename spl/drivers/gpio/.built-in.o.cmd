@@ -1,0 +1,1 @@
+cmd_spl/drivers/gpio/built-in.o :=  rm -f spl/drivers/gpio/built-in.o; aarch64-none-linux-gnu-gcc-ar cDPrsT spl/drivers/gpio/built-in.o spl/drivers/gpio/gpio-uclass.o spl/drivers/gpio/pca953x_gpio.o spl/drivers/gpio/da8xx_gpio.o

@@ -1,0 +1,1 @@
+cmd_spl/drivers/dma/ti/k3-psil-data.o := rm -f spl/drivers/dma/ti/k3-psil-data.o; aarch64-none-linux-gnu-gcc-ar cDPrsT spl/drivers/dma/ti/k3-psil-data.o spl/drivers/dma/ti/k3-psil.o spl/drivers/dma/ti/k3-psil-am62l.o

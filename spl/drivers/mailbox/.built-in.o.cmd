@@ -1,0 +1,1 @@
+cmd_spl/drivers/mailbox/built-in.o :=  rm -f spl/drivers/mailbox/built-in.o; aarch64-none-linux-gnu-gcc-ar cDPrsT spl/drivers/mailbox/built-in.o spl/drivers/mailbox/mailbox-uclass.o spl/drivers/mailbox/k3-sec-proxy.o

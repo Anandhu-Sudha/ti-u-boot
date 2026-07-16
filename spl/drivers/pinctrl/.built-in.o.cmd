@@ -1,0 +1,1 @@
+cmd_spl/drivers/pinctrl/built-in.o :=  rm -f spl/drivers/pinctrl/built-in.o; aarch64-none-linux-gnu-gcc-ar cDPrsT spl/drivers/pinctrl/built-in.o spl/drivers/pinctrl/pinctrl-uclass.o spl/drivers/pinctrl/pinctrl-generic.o spl/drivers/pinctrl/nxp/built-in.o spl/drivers/pinctrl/pinctrl-single.o spl/drivers/pinctrl/broadcom/built-in.o

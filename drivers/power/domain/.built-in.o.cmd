@@ -1,0 +1,1 @@
+cmd_drivers/power/domain/built-in.o :=  rm -f drivers/power/domain/built-in.o; aarch64-none-linux-gnu-gcc-ar cDPrsT drivers/power/domain/built-in.o drivers/power/domain/power-domain-uclass.o drivers/power/domain/scmi-power-domain.o

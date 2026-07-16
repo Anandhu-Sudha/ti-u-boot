@@ -1,0 +1,1 @@
+cmd_fit-dtb.blob := ./tools/mkimage -f auto -A arm -T firmware -C none -O u-boot -a 0 -e 0 -E -b dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_1GB.dtb -d /dev/null -B 0x8 -d dts/dt.dtb fit-dtb.blob >/dev/null 

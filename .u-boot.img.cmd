@@ -1,0 +1,1 @@
+cmd_u-boot.img := ./tools/mkimage -f auto -A arm -T firmware -C none -O u-boot -a 0x84000000 -e 0x84000000 -p 0x0 -n "U-Boot 2025.01-gd5e0c42584ba-dirty for am62l_stamp_1gb board" -E  -b dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_1GB.dtb  -d u-boot-nodtb.bin u-boot.img >/dev/null 

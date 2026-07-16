@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-only or MIT
 /*
- * Device Tree file for the AM62L31 custom board modified from the am62l3 Evaluation Module
+ * Device Tree file for the Calixto AM62L3 STAMP SOM Evaluation Board
  */
 
 /dts-v1/;
@@ -15,7 +15,7 @@
 
 / {
 	compatible = "Calixto,am62l-stamp-som", "ti,am62l3";
-	model = "Calixto Systems AM62L3 Stamp SOM 1GB BL";
+	model = "Calixto Systems AM62L3 Stamp SOM 1GB";
 
 	aliases {
 		mmc0 = &sdhci0;
@@ -36,7 +36,7 @@
 		compatible = "ti,tcan1042";
 		#phy-cells = <0>;
 		max-bitrate = <5000000>;
-	};        	
+	};  	
 };
 
 &pmx0 {
@@ -52,6 +52,7 @@
 			AM62LX_IOPAD(0x010c, PIN_OUTPUT|PIN_DRIVE_STRENGTH_NOMINAL, 7) /* (U23) MMC2_CMD.GPIO0_50 */
 			AM62LX_IOPAD(0x0110, PIN_OUTPUT|PIN_DRIVE_STRENGTH_NOMINAL, 7) /* (T20) MMC2_SDCD.GPIO0_51 */
 			AM62LX_IOPAD(0x0114, PIN_OUTPUT|PIN_DRIVE_STRENGTH_NOMINAL, 7) /* (T21) MMC2_SDWP.GPIO0_52 */
+			AM62LX_IOPAD(0x0190, PIN_INPUT|PIN_DRIVE_STRENGTH_NOMINAL, 7) /* (A11) MCASP0_ACLKX.GPIO0_83 */
 		>;
 	};
 	
@@ -97,9 +98,8 @@
 	
 	rs485_pins_default: rs485-default-pins {  /* RS485 */
 		pinctrl-single,pins = <
-			AM62LX_IOPAD(0x0198, PIN_OUTPUT|PIN_DRIVE_STRENGTH_NOMINAL, 2) /* (C11) MCASP0_AFSR.UART1_RXD */
+			AM62LX_IOPAD(0x0198, PIN_INPUT|PIN_DRIVE_STRENGTH_NOMINAL, 2) /* (C11) MCASP0_AFSR.UART1_RXD */
 			AM62LX_IOPAD(0x019c, PIN_OUTPUT|PIN_DRIVE_STRENGTH_NOMINAL, 2) /* (A12) MCASP0_ACLKR.UART1_TXD */
-			AM62LX_IOPAD(0x0190, PIN_INPUT|PIN_DRIVE_STRENGTH_NOMINAL, 7) /* (A11) MCASP0_ACLKX.GPIO0_83 */
 		>;
 	};
 	
@@ -286,7 +286,7 @@
     	pinctrl-0 = <&j17_exp_con_gpio_pins_default  /* Expansion Connector J17 pins muxed as GPIO */
     		     &j19_exp_con_gpio_pins_default  /* Expansion Connector J19 pins muxed as GPIO */
     		     &j12_exp_con_gpio_pins_default  /* Expansion Connector J12 pins muxed as GPIO */
-    		     &mikrobus_gpio0_pins_default>;	     /* Mikrobus gpio pins RST INT */   		 
+    		     &mikrobus_gpio0_pins_default>;	     /* Mikrobus gpio pins RST INT */  		 
 };
 
 &sdhci0 {
@@ -325,20 +325,18 @@
 };
 
 &cpsw3g_mdio {
-        status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&mdio1_pins_default>;
-	
-	cpsw3g_phy0: ethernet-phy@7 {
-		compatible = "ethernet-phy-ieee802.3-c22";
-		reg = <7>;
+	status = "okay";
+
+	cpsw3g_phy0: ethernet-phy@6 {
+		reg = <6>;
 	};
 };
 
 &cpsw_port1 {
 	phy-mode = "rgmii-rxid";
 	phy-handle = <&cpsw3g_phy0>;
-	status = "okay";
 };
 
 /* port 2 not in use */
@@ -361,8 +359,8 @@
 };
 
 &main_uart1 {
-	pinctrl-0 = <&rs485_pins_default>; /* RS485 */
 	pinctrl-names = "default";
+	pinctrl-0 = <&rs485_pins_default>;
 	status = "okay";
 	bootph-all;
 };
@@ -400,6 +398,11 @@
 		spi-max-frequency = <10000000>;
 	};
 
+};
+
+&dss {
+	status = "okay";
+	bootph-all;
 };
 
 &epwm0 {

@@ -1,0 +1,1 @@
+cmd_spl/drivers/soc/built-in.o :=  rm -f spl/drivers/soc/built-in.o; aarch64-none-linux-gnu-gcc-ar cDPrsT spl/drivers/soc/built-in.o spl/drivers/soc/ti/built-in.o spl/drivers/soc/soc-uclass.o spl/drivers/soc/soc_ti_k3.o

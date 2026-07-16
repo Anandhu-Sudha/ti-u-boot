@@ -1,0 +1,1 @@
+cmd_spl/drivers/mtd/nand/nandcore.o := rm -f spl/drivers/mtd/nand/nandcore.o; aarch64-none-linux-gnu-gcc-ar cDPrsT spl/drivers/mtd/nand/nandcore.o spl/drivers/mtd/nand/core.o spl/drivers/mtd/nand/bbt.o

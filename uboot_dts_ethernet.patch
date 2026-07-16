@@ -1,0 +1,64 @@
+diff --git a/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_1GB.dts b/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_1GB.dts
+index 15261e9a..5159fab6 100644
+--- a/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_1GB.dts
++++ b/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_1GB.dts
+@@ -329,9 +329,9 @@
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&mdio1_pins_default>;
+ 	
+-	cpsw3g_phy0: ethernet-phy@7 {
++	cpsw3g_phy0: ethernet-phy@6 {
+ 		compatible = "ethernet-phy-ieee802.3-c22";
+-		reg = <7>;
++		reg = <6>;
+ 	};
+ };
+ 
+diff --git a/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_256MB.dts b/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_256MB.dts
+index 934923c3..308f12cd 100644
+--- a/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_256MB.dts
++++ b/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_256MB.dts
+@@ -329,9 +329,9 @@
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&mdio1_pins_default>;
+ 	
+-	cpsw3g_phy0: ethernet-phy@7 {
++	cpsw3g_phy0: ethernet-phy@6 {
+ 		compatible = "ethernet-phy-ieee802.3-c22";
+-		reg = <7>;
++		reg = <6>;
+ 	};
+ };
+ 
+diff --git a/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_2GB.dts b/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_2GB.dts
+index 837079f4..27f1fa92 100644
+--- a/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_2GB.dts
++++ b/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_2GB.dts
+@@ -329,9 +329,9 @@
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&mdio1_pins_default>;
+ 	
+-	cpsw3g_phy0: ethernet-phy@7 {
++	cpsw3g_phy0: ethernet-phy@6 {
+ 		compatible = "ethernet-phy-ieee802.3-c22";
+-		reg = <7>;
++		reg = <6>;
+ 	};
+ };
+ 
+diff --git a/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_512MB.dts b/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_512MB.dts
+index 0755c303..7d3ddf72 100644
+--- a/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_512MB.dts
++++ b/dts/upstream/src/arm64/ti/k3-am62l-calixto-stamp_512MB.dts
+@@ -329,9 +329,9 @@
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&mdio1_pins_default>;
+ 	
+-	cpsw3g_phy0: ethernet-phy@7 {
++	cpsw3g_phy0: ethernet-phy@6 {
+ 		compatible = "ethernet-phy-ieee802.3-c22";
+-		reg = <7>;
++		reg = <6>;
+ 	};
+ };
+ 

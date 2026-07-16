@@ -325,20 +325,18 @@
 };
 
 &cpsw3g_mdio {
-        status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&mdio1_pins_default>;
-	
-	cpsw3g_phy0: ethernet-phy@7 {
-		compatible = "ethernet-phy-ieee802.3-c22";
-		reg = <7>;
+	status = "okay";
+
+	cpsw3g_phy0: ethernet-phy@6 {
+		reg = <6>;
 	};
 };
 
 &cpsw_port1 {
 	phy-mode = "rgmii-rxid";
 	phy-handle = <&cpsw3g_phy0>;
-	status = "okay";
 };
 
 /* port 2 not in use */

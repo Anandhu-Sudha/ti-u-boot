@@ -1,0 +1,1 @@
+cmd_spl/arch/arm/mach-k3/arm64/built-in.o :=  rm -f spl/arch/arm/mach-k3/arm64/built-in.o; aarch64-none-linux-gnu-gcc-ar cDPrsT spl/arch/arm/mach-k3/arm64/built-in.o spl/arch/arm/mach-k3/arm64/arm64-mmu.o spl/arch/arm/mach-k3/arm64/cache.o

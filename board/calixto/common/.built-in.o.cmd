@@ -1,0 +1,1 @@
+cmd_board/calixto/common/built-in.o :=  rm -f board/calixto/common/built-in.o; aarch64-none-linux-gnu-gcc-ar cDPrsT board/calixto/common/built-in.o board/calixto/common/fdt_ops.o board/calixto/common/k3-ddr.o

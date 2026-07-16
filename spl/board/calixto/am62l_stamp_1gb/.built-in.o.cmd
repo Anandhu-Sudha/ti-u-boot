@@ -1,0 +1,1 @@
+cmd_spl/board/calixto/am62l_stamp_1gb/built-in.o :=  rm -f spl/board/calixto/am62l_stamp_1gb/built-in.o; aarch64-none-linux-gnu-gcc-ar cDPrsT spl/board/calixto/am62l_stamp_1gb/built-in.o spl/board/calixto/am62l_stamp_1gb/am62l_stamp_1gb.o

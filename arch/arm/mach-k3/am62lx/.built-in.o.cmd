@@ -1,0 +1,1 @@
+cmd_arch/arm/mach-k3/am62lx/built-in.o :=  rm -f arch/arm/mach-k3/am62lx/built-in.o; aarch64-none-linux-gnu-gcc-ar cDPrsT arch/arm/mach-k3/am62lx/built-in.o arch/arm/mach-k3/am62lx/am62l3_fdt.o arch/arm/mach-k3/am62lx/boot.o

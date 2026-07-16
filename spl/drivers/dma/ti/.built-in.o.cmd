@@ -1,0 +1,1 @@
+cmd_spl/drivers/dma/ti/built-in.o :=  rm -f spl/drivers/dma/ti/built-in.o; aarch64-none-linux-gnu-gcc-ar cDPrsT spl/drivers/dma/ti/built-in.o spl/drivers/dma/ti/k3-udma-common.o spl/drivers/dma/ti/k3-udma-am62l.o spl/drivers/dma/ti/k3-psil-data.o

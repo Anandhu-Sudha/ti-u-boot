@@ -1,0 +1,1 @@
+cmd_spl/drivers/mtd/spi/built-in.o :=  rm -f spl/drivers/mtd/spi/built-in.o; aarch64-none-linux-gnu-gcc-ar cDPrsT spl/drivers/mtd/spi/built-in.o spl/drivers/mtd/spi/sf-uclass.o spl/drivers/mtd/spi/spi-nor.o

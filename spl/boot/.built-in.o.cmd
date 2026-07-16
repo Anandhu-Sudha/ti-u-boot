@@ -1,0 +1,1 @@
+cmd_spl/boot/built-in.o :=  rm -f spl/boot/built-in.o; aarch64-none-linux-gnu-gcc-ar cDPrsT spl/boot/built-in.o spl/boot/image.o spl/boot/image-board.o spl/boot/fdt_support.o spl/boot/image-fdt.o spl/boot/image-fit.o spl/boot/boot_fit.o spl/boot/common_fit.o

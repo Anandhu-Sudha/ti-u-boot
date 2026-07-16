@@ -1,0 +1,1 @@
+cmd_spl/drivers/usb/dwc3/built-in.o :=  rm -f spl/drivers/usb/dwc3/built-in.o; aarch64-none-linux-gnu-gcc-ar cDPrsT spl/drivers/usb/dwc3/built-in.o spl/drivers/usb/dwc3/dwc3.o spl/drivers/usb/dwc3/gadget.o spl/drivers/usb/dwc3/ep0.o spl/drivers/usb/dwc3/dwc3-am62.o spl/drivers/usb/dwc3/dwc3-generic.o
